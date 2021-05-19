@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-// SendResponse reply after sms send
+// SendResponse is a response object from sms.ru service
 type SendResponse struct {
 	Status     string   `json:"status"`
 	StatusCode int      `json:"status_code"`

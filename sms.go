@@ -25,13 +25,13 @@ type Number struct {
 
 // SMSru is instance of cloud service sms.ru
 type SMSru struct {
-	API_ID  string
-	API_URL string
+	ApiID  string
+	ApiURL string
 }
 
 // GetSMSInstance return sms service instance
 func GetSMSInstance(APIID, APIURL string) *SMSru {
-	s := SMSru{API_ID: APIID, API_URL: APIURL}
+	s := SMSru{ApiID: APIID, ApiURL: APIURL}
 	return &s
 }
 
@@ -39,11 +39,11 @@ func GetSMSInstance(APIID, APIURL string) *SMSru {
 func (sms *SMSru) SendSMS(number, text string) (SendResponse, error) {
 	result := SendResponse{}
 
-	if sms.API_ID == "" && sms.API_URL == "" {
+	if sms.ApiID == "" && sms.ApiURL == "" {
 		return result, errors.New("Not found setting for sms request")
 	}
 	//https://sms.ru/sms/send?api_id=18B2616D-A8BC-EFE3-0509-9581ABDDEA5F&to=79186313258,74993221627&msg=hello+world&json=1
-	params := fmt.Sprintf("%s?api_id=%s&to=%s&msg=%s&json=1", sms.API_URL, sms.API_ID, number, text)
+	params := fmt.Sprintf("%s?api_id=%s&to=%s&msg=%s&json=1", sms.ApiURL, sms.ApiID, number, text)
 
 	client := http.Client{}
 	request, err := http.NewRequest("GET", params, nil)

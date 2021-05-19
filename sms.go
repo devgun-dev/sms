@@ -35,15 +35,15 @@ func GetSMSInstance(APIID, APIURL string) *SMSru {
 	return &s
 }
 
-// SendSMS main function for sms send
+// SendSMS main function for sms sending
 func (sms *SMSru) SendSMS(number, text string) (SendResponse, error) {
 	result := SendResponse{}
 
 	if sms.ApiId == "" && sms.ApiURL == "" {
 		return result, errors.New("Not found setting for sms request")
 	}
-	//https://sms.ru/sms/send?api_id=18B2616D-A8BC-EFE3-0509-9581ABDDEA5F&to=79186313258,74993221627&msg=hello+world&json=1
-	params := fmt.Sprintf("%s?api_id=%s&to=%s&msg=%s&json=1", sms.ApiURL, sms.ApiId, number, text)
+
+	params := fmt.Sprintf("%s?api_id=%s&to=%s&msg=%s&json=1", sms.API_URL, sms.API_ID, number, text)
 
 	client := http.Client{}
 	request, err := http.NewRequest("GET", params, nil)
@@ -56,7 +56,7 @@ func (sms *SMSru) SendSMS(number, text string) (SendResponse, error) {
 		return result, err
 	}
 	log.Printf("SMS send response to number %s\n", number)
-	// var result map[string]interface{}
+
 	json.NewDecoder(r.Body).Decode(&result)
 	log.Printf("SMS send response %s", result.Status)
 	return result, nil

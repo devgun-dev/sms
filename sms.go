@@ -23,7 +23,7 @@ type Number struct {
 	SmsID      string `json:"sms_id"`
 }
 
-// SMSru main instance of service sms.ru
+// SMSru is instance of cloud service sms.ru
 type SMSru struct {
 	API_ID  string
 	API_URL string

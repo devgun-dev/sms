@@ -1,4 +1,5 @@
 //sms package for work with sms.ru cloud service
+
 package sms
 
 import (
@@ -9,7 +10,7 @@ import (
 	"net/http"
 )
 
-// SendResponse reply after sms send
+// SendResponse reply after sms send, if no error
 type SendResponse struct {
 	Status     string   `json:"status"`
 	StatusCode int      `json:"status_code"`

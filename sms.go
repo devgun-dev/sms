@@ -1,4 +1,4 @@
-//sms package for work with sms.ru cloud service
+//sms package for work with sms.ru sms cloud service
 package sms
 
 import (

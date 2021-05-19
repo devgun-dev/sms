@@ -1,4 +1,5 @@
 //sms package for work with sms.ru cloud service
+// work for Russia citizens
 
 package sms
 

@@ -10,7 +10,7 @@ import (
 	"net/http"
 )
 
-// SendResponse reply after sms send, if no error
+// SendResponse is a response object from sms.ru service
 type SendResponse struct {
 	Status     string   `json:"status"`
 	StatusCode int      `json:"status_code"`
@@ -37,7 +37,7 @@ func GetSMSInstance(APIID, APIURL string) *SMSru {
 	return &s
 }
 
-// SendSMS main function for sms send
+// SendSMS main function for sms sending
 func (sms *SMSru) SendSMS(number, text string) (SendResponse, error) {
 	result := SendResponse{}
 

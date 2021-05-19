@@ -35,7 +35,7 @@ func GetSMSInstance(APIID, APIURL string) *SMSru {
 	return &s
 }
 
-// SendSMS main function for sms send
+// SendSMS main function for sms sending
 func (sms *SMSru) SendSMS(number, text string) (SendResponse, error) {
 	result := SendResponse{}
 
